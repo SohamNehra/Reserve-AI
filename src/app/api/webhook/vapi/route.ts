@@ -56,7 +56,10 @@ export async function POST(req: Request) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const event: VapiEvent = await req.json();
+  const raw = await req.json();
+  // Vapi sometimes wraps payload under `message`
+  const event: VapiEvent = raw.message ?? raw;
+  console.log("[vapi-webhook] type:", event.type, "raw keys:", Object.keys(raw));
 
   // 2. Handle tool calls
   if (event.type === "tool-calls") {
@@ -64,8 +67,19 @@ export async function POST(req: Request) {
     const toolCall = toolCallList[0];
     if (!toolCall) return Response.json({ results: [] });
 
-    const { id: toolCallId, function: fn } = toolCall;
-    const args = JSON.parse(fn.arguments || "{}");
+    console.log("[vapi-webhook] toolCall:", JSON.stringify(toolCall));
+
+    // Handle both payload shapes:
+    // Shape A (OpenAI style): { id, function: { name, arguments: "json string" } }
+    // Shape B (Vapi style):   { id, name, parameters: { ... } }
+    const toolCallId: string = toolCall.id;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const tc = toolCall as any;
+    const fnName: string = tc.function?.name ?? tc.name;
+    const args: Record<string, unknown> =
+      tc.function?.arguments
+        ? JSON.parse(tc.function.arguments)
+        : (tc.parameters ?? {});
 
     const business = await getBusiness(call.assistantId);
     if (!business) {
@@ -73,7 +87,7 @@ export async function POST(req: Request) {
     }
 
     // check_availability
-    if (fn.name === "check_availability") {
+    if (fnName === "check_availability") {
       const { date } = args as { date: string };
       if (!date) {
         return toolResult(toolCallId, "Please provide a date to check availability.");
@@ -98,7 +112,7 @@ export async function POST(req: Request) {
     }
 
     // create_reservation
-    if (fn.name === "create_reservation") {
+    if (fnName === "create_reservation") {
       const { date, time_slot, customer_name, customer_phone, party_size, notes } = args as {
         date: string;
         time_slot: string;
