@@ -251,7 +251,7 @@ export default function SettingsTabs({ business }: Props) {
                 <FieldLabel>Timezone</FieldLabel>
                 <Select
                   value={profile.timezone}
-                  onValueChange={(v) => setProfile((p) => ({ ...p, timezone: v }))}
+                  onValueChange={(v) => v && setProfile((p) => ({ ...p, timezone: v }))}
                 >
                   <SelectTrigger className="w-full">
                     <SelectValue />

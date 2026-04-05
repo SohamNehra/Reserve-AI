@@ -113,19 +113,22 @@ export default async function RootPage() {
 
         {/* Stats row */}
         <div
-          className="mx-auto mt-16 grid max-w-lg grid-cols-3 divide-x rounded-2xl py-6"
+          className="mx-auto mt-16 grid max-w-lg grid-cols-3 rounded-2xl py-6"
           style={{
             border: "1px solid oklch(0.22 0.008 72 / 0.4)",
             background: "oklch(0.12 0.009 72)",
-            divideColor: "oklch(0.22 0.008 72 / 0.4)",
           }}
         >
           {[
             { value: "24/7",  label: "Always online"    },
             { value: "< 2s",  label: "Response time"    },
             { value: "100%",  label: "Calls answered"   },
-          ].map(({ value, label }) => (
-            <div key={label} className="flex flex-col items-center gap-1 px-6">
+          ].map(({ value, label }, i) => (
+            <div
+              key={label}
+              className="flex flex-col items-center gap-1 px-6"
+              style={i > 0 ? { borderLeft: "1px solid oklch(0.22 0.008 72 / 0.4)" } : undefined}
+            >
               <span
                 className="text-3xl leading-none"
                 style={{ fontFamily: "var(--font-instrument-serif)", color: "#c97d14" }}
