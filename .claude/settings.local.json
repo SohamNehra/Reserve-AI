@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm --version)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/soham/AppData/Roaming/**)",
+      "Read(//c/Users/soham/**)",
+      "Bash(cmd.exe:*)",
+      "Bash(cmd:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(npx create-next-app@latest \"D:/Projects/reserve-temp\" --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --yes)",
+      "Bash(cp -r \"D:/Projects/reserve-temp/.\" \"D:/Projects/Reserve AI/\")",
+      "Bash(rm -rf \"D:/Projects/reserve-temp\")",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn@latest init --yes --defaults)"
+    ]
+  }
+}
