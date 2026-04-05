@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { supabaseAdmin } from "@/lib/supabase/server";
 import { getAvailableSlots } from "@/lib/availability";
 import { createReservation } from "@/lib/reservation";
@@ -201,6 +202,9 @@ export async function POST(req: Request) {
       },
       { onConflict: "vapi_call_id", ignoreDuplicates: false }
     );
+
+    // Revalidate dashboard so stats update immediately on next visit
+    revalidatePath("/dashboard");
 
     return Response.json({ ok: true });
   }
