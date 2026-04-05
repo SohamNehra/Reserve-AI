@@ -14,7 +14,23 @@
       "Bash(cp -r \"D:/Projects/reserve-temp/.\" \"D:/Projects/Reserve AI/\")",
       "Bash(rm -rf \"D:/Projects/reserve-temp\")",
       "Bash(npm install:*)",
-      "Bash(npx shadcn@latest init --yes --defaults)"
+      "Bash(npx shadcn@latest init --yes --defaults)",
+      "Bash(npx shadcn@latest add card input label select textarea badge table dialog sheet tabs progress switch separator skeleton sonner avatar dropdown-menu --yes)",
+      "Bash(npm run:*)",
+      "Bash(mkdir -p \"D:/Projects/Reserve AI/src/app/\\(auth\\)/sign-in/[[...sign-in]]\")",
+      "Bash(mkdir -p \"D:/Projects/Reserve AI/src/app/\\(auth\\)/sign-up/[[...sign-up]]\")",
+      "Bash(node -e \"const pkg = require\\('./node_modules/@supabase/supabase-js/package.json'\\); console.log\\(pkg.version\\)\")",
+      "WebSearch",
+      "WebFetch(domain:docs.vapi.ai)",
+      "WebFetch(domain:vapi.ai)",
+      "WebFetch(domain:developers.openai.com)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('exports', {}\\), indent=2\\)\\)\")",
+      "Bash(node -e \"const p=require\\('./node_modules/shadcn/package.json'\\); console.log\\(JSON.stringify\\(Object.keys\\(p.exports||{}\\)\\)\\)\")",
+      "Bash(curl -s http://localhost:3000/onboarding)",
+      "Bash(node:*)",
+      "WebFetch(domain:developers.google.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:googleapis.dev)"
     ]
   }
 }
