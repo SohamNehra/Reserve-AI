@@ -57,14 +57,20 @@ export async function POST(req: Request) {
   }
 
   const raw = await req.json();
-  // Vapi sometimes wraps payload under `message`
-  const event: VapiEvent = raw.message ?? raw;
-  console.log("[vapi-webhook] type:", event.type, "raw keys:", Object.keys(raw));
+
+  // Vapi may wrap the event under `message`; `call` stays at root in that case
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const r = raw as any;
+  const eventType: string = r.message?.type ?? r.type ?? "";
+  const toolCallList: unknown[] = r.message?.toolCallList ?? r.toolCallList ?? [];
+  const call = r.message?.call ?? r.call ?? {};
+
+  console.log("[vapi-webhook] type:", eventType, "call.assistantId:", call?.assistantId);
 
   // 2. Handle tool calls
-  if (event.type === "tool-calls") {
-    const { toolCallList, call } = event as VapiToolCallEvent;
-    const toolCall = toolCallList[0];
+  if (eventType === "tool-calls") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const toolCall = toolCallList[0] as any;
     if (!toolCall) return Response.json({ results: [] });
 
     console.log("[vapi-webhook] toolCall:", JSON.stringify(toolCall));
@@ -73,13 +79,11 @@ export async function POST(req: Request) {
     // Shape A (OpenAI style): { id, function: { name, arguments: "json string" } }
     // Shape B (Vapi style):   { id, name, parameters: { ... } }
     const toolCallId: string = toolCall.id;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const tc = toolCall as any;
-    const fnName: string = tc.function?.name ?? tc.name;
+    const fnName: string = toolCall.function?.name ?? toolCall.name ?? "";
     const args: Record<string, unknown> =
-      tc.function?.arguments
-        ? JSON.parse(tc.function.arguments)
-        : (tc.parameters ?? {});
+      typeof toolCall.function?.arguments === "string"
+        ? JSON.parse(toolCall.function.arguments)
+        : (toolCall.function?.arguments ?? toolCall.parameters ?? {});
 
     const business = await getBusiness(call.assistantId);
     if (!business) {
@@ -178,8 +182,9 @@ export async function POST(req: Request) {
   }
 
   // 3. Handle call ended — log to calls table
-  if (event.type === "end-of-call-report") {
-    const { call, durationSeconds, transcript } = event as VapiCallEndEvent;
+  if (eventType === "end-of-call-report") {
+    const endEvent = (r.message ?? r) as VapiCallEndEvent;
+    const { durationSeconds, transcript } = endEvent;
 
     const business = await getBusiness(call.assistantId);
     if (!business) return Response.json({ ok: true });
