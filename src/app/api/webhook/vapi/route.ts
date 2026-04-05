@@ -1,6 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { supabaseAdmin } from "@/lib/supabase/server";
-import { getAvailableSlots } from "@/lib/availability";
+import { getAvailableSlots, format12h } from "@/lib/availability";
 import { createReservation } from "@/lib/reservation";
 import { createGCalEvent } from "@/lib/google/calendar";
 import type { Business } from "@/lib/supabase/types";
@@ -108,7 +108,7 @@ export async function POST(req: Request) {
         }
         return toolResult(
           toolCallId,
-          `Available slots on ${date}: ${slots.join(", ")}`
+          `Available slots on ${date}: ${slots.map(format12h).join(", ")}. When the customer picks a time, pass it back in 24-hour HH:MM format for create_reservation.`
         );
       } catch (err) {
         console.error("check_availability error:", err);

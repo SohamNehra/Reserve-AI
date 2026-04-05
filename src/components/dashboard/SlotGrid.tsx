@@ -1,3 +1,5 @@
+import { format12h } from "@/lib/availability";
+
 type SlotStatus = "available" | "booked" | "past";
 
 type Slot = {
@@ -44,7 +46,7 @@ export default function SlotGrid({ slots, dateLabel }: Props) {
           style={{ fontFamily: "var(--font-ubuntu)", color: "#f0f0f0" }}
         >
           Today's Schedule
-          <span className="ml-2 text-sm font-normal" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-dm-sans)" }}>
+          <span className="ml-2 text-sm font-normal" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-ubuntu)" }}>
             {dateLabel}
           </span>
         </h3>
@@ -80,7 +82,7 @@ export default function SlotGrid({ slots, dateLabel }: Props) {
                   className="font-mono text-sm font-medium tracking-wide"
                   style={{ color: s.text }}
                 >
-                  {slot.time}
+                  {format12h(slot.time)}
                 </span>
                 <span className="text-[9px] uppercase tracking-widest mt-0.5" style={{ color: s.text, opacity: 0.6 }}>
                   {s.label}
