@@ -122,6 +122,8 @@ export async function updateVapiAssistantWebhook(
     headers: vapiHeaders(),
     body: JSON.stringify({
       model: {
+        provider: "openai",
+        model: "gpt-4o-mini",
         tools: [
           toolPatch("check_availability"),
           toolPatch("create_reservation"),
