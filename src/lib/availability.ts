@@ -26,7 +26,9 @@ function minutesToTime(mins: number): string {
 function generateSlots(open: string, close: string, durationMins: number): string[] {
   const slots: string[] = [];
   let current = parseMinutes(open);
-  const end = parseMinutes(close);
+  // "00:00" close means midnight (end of day) → treat as 24*60 = 1440
+  let end = parseMinutes(close);
+  if (end === 0 || end <= current) end = 24 * 60;
   while (current + durationMins <= end) {
     slots.push(minutesToTime(current));
     current += durationMins;
