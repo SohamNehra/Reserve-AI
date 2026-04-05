@@ -100,7 +100,7 @@ export default async function DashboardPage({
       <div>
         <h3
           className="mb-4 text-lg"
-          style={{ fontFamily: "var(--font-instrument-serif)", color: "#c0b8ac" }}
+          style={{ fontFamily: "var(--font-ubuntu)", color: "#f0f0f0" }}
         >
           Upcoming
         </h3>
@@ -108,7 +108,7 @@ export default async function DashboardPage({
         {(upcoming?.length ?? 0) === 0 ? (
           <div
             className="flex items-center justify-center rounded-2xl py-12 text-sm"
-            style={{ border: "1px dashed oklch(0.22 0.008 72 / 0.4)", color: "#3a3530" }}
+            style={{ border: "1px dashed oklch(0.22 0.008 72 / 0.4)", color: "rgba(255,255,255,0.40)" }}
           >
             No upcoming reservations
           </div>
@@ -126,15 +126,15 @@ export default async function DashboardPage({
                 <div className="flex items-center gap-3">
                   <div
                     className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-xs font-bold"
-                    style={{ background: "oklch(0.15 0.009 72)", color: "#4a4138" }}
+                    style={{ background: "oklch(0.15 0.009 72)", color: "rgba(255,255,255,0.55)" }}
                   >
                     {r.customer_name.charAt(0).toUpperCase()}
                   </div>
                   <div>
-                    <p className="text-sm font-medium" style={{ color: "#c0b8ac" }}>
+                    <p className="text-sm font-medium" style={{ color: "#f0f0f0" }}>
                       {r.customer_name}
                     </p>
-                    <p className="text-xs" style={{ color: "#3a3530" }}>
+                    <p className="text-xs" style={{ color: "rgba(255,255,255,0.40)" }}>
                       {r.date} · {r.time_slot}
                       {r.party_size ? ` · ${r.party_size} guests` : ""}
                     </p>

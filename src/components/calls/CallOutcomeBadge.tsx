@@ -3,9 +3,9 @@ type Outcome = "reservation_created" | "no_availability" | "hung_up" | "transfer
 const CONFIG: Record<string, { label: string; bg: string; color: string; border: string }> = {
   reservation_created: { label: "Booked",       bg: "oklch(0.59 0.10 155 / 0.12)", color: "#4a9e6b", border: "oklch(0.59 0.10 155 / 0.28)" },
   no_availability:     { label: "No Slots",     bg: "oklch(0.60 0.14 60 / 0.12)",  color: "#c97d14", border: "oklch(0.60 0.14 60 / 0.28)"  },
-  hung_up:             { label: "Hung Up",      bg: "oklch(0.15 0.008 72)",        color: "#4a4138", border: "oklch(0.22 0.008 72 / 0.4)"  },
+  hung_up:             { label: "Hung Up",      bg: "oklch(0.15 0.008 72)",        color: "rgba(255,255,255,0.55)", border: "oklch(0.22 0.008 72 / 0.4)"  },
   transferred:         { label: "Transferred",  bg: "oklch(0.55 0.12 230 / 0.12)", color: "#5a8ec0", border: "oklch(0.55 0.12 230 / 0.28)" },
-  unknown:             { label: "Unknown",      bg: "oklch(0.15 0.008 72)",        color: "#3a3530", border: "oklch(0.22 0.008 72 / 0.35)" },
+  unknown:             { label: "Unknown",      bg: "oklch(0.15 0.008 72)",        color: "rgba(255,255,255,0.40)", border: "oklch(0.22 0.008 72 / 0.35)" },
 };
 
 export default function CallOutcomeBadge({ outcome }: { outcome: Outcome }) {

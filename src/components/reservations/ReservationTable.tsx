@@ -32,7 +32,7 @@ export default function ReservationTable({ reservations }: Props) {
     <div className="space-y-4">
       {/* Toolbar */}
       <div className="flex items-center justify-between">
-        <p className="text-sm" style={{ color: "#4a4138" }}>
+        <p className="text-sm" style={{ color: "rgba(255,255,255,0.55)" }}>
           {reservations.length} reservation{reservations.length !== 1 ? "s" : ""}
         </p>
         <button
@@ -53,14 +53,14 @@ export default function ReservationTable({ reservations }: Props) {
           <thead style={{ background: "oklch(0.12 0.009 72)" }}>
             <tr style={{ borderBottom: "1px solid oklch(0.22 0.008 72 / 0.4)" }}>
               {["Customer", "Date", "Time", "Party", "Via", "Status", ""].map((h) => (
-                <th key={h} className={TH} style={{ color: "#3a3530" }}>{h}</th>
+                <th key={h} className={TH} style={{ color: "rgba(255,255,255,0.40)" }}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {reservations.length === 0 && (
               <tr>
-                <td colSpan={7} className="py-16 text-center text-sm" style={{ color: "#3a3530" }}>
+                <td colSpan={7} className="py-16 text-center text-sm" style={{ color: "rgba(255,255,255,0.40)" }}>
                   No reservations yet
                 </td>
               </tr>
@@ -74,14 +74,14 @@ export default function ReservationTable({ reservations }: Props) {
                 }}
               >
                 <td className={TD}>
-                  <p className="font-medium" style={{ color: "#c0b8ac" }}>{r.customer_name}</p>
+                  <p className="font-medium" style={{ color: "#f0f0f0" }}>{r.customer_name}</p>
                   {r.customer_phone && (
-                    <p className="text-xs" style={{ color: "#4a4138" }}>{r.customer_phone}</p>
+                    <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>{r.customer_phone}</p>
                   )}
                 </td>
-                <td className={TD} style={{ color: "#7a7268" }}>{r.date}</td>
-                <td className={`${TD} font-mono`} style={{ color: "#7a7268" }}>{r.time_slot}</td>
-                <td className={TD} style={{ color: "#7a7268" }}>{r.party_size ?? "—"}</td>
+                <td className={TD} style={{ color: "rgba(255,255,255,0.55)" }}>{r.date}</td>
+                <td className={`${TD} font-mono`} style={{ color: "rgba(255,255,255,0.55)" }}>{r.time_slot}</td>
+                <td className={TD} style={{ color: "rgba(255,255,255,0.55)" }}>{r.party_size ?? "—"}</td>
                 <td className={TD}>
                   {r.created_via === "voice" ? (
                     <span
@@ -91,7 +91,7 @@ export default function ReservationTable({ reservations }: Props) {
                       <Zap className="h-2.5 w-2.5" /> AI
                     </span>
                   ) : (
-                    <span className="text-xs" style={{ color: "#4a4138" }}>manual</span>
+                    <span className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>manual</span>
                   )}
                 </td>
                 <td className={TD}>

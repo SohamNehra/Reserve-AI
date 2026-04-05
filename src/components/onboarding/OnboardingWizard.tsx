@@ -67,7 +67,7 @@ export default function OnboardingWizard() {
       {/* Header */}
       <header className="relative z-10 flex items-center gap-3 px-8 py-6">
         <div className="flex items-center gap-2">
-          <span className="text-xl leading-none" style={{ fontFamily: "var(--font-instrument-serif)", color: "#e0d8cc" }}>Reserve</span>
+          <span className="text-xl leading-none" style={{ fontFamily: "var(--font-ubuntu)", color: "#ffffff" }}>Reserve</span>
           <span className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider" style={{ background: "#c97d14", color: "#0c0b09" }}>AI</span>
         </div>
       </header>

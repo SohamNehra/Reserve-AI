@@ -25,7 +25,7 @@ export default function SignUpPage() {
         <div className="flex items-center gap-2">
           <span
             className="text-2xl leading-none"
-            style={{ fontFamily: "var(--font-instrument-serif)", color: "#e0d8cc" }}
+            style={{ fontFamily: "var(--font-ubuntu)", color: "#ffffff" }}
           >Reserve</span>
           <span
             className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider"
@@ -40,13 +40,13 @@ export default function SignUpPage() {
             </p>
             <h1
               className="text-5xl leading-[1.1]"
-              style={{ fontFamily: "var(--font-instrument-serif)", color: "#e0d8cc" }}
+              style={{ fontFamily: "var(--font-ubuntu)", color: "#ffffff" }}
             >
               Your AI receptionist
               <br />
               <span style={{ color: "#c97d14" }}>is waiting for you.</span>
             </h1>
-            <p className="text-base leading-relaxed max-w-sm" style={{ color: "#4a4138" }}>
+            <p className="text-base leading-relaxed max-w-sm" style={{ color: "rgba(255,255,255,0.55)" }}>
               Create an account, complete a quick 5-step setup, and your AI assistant
               starts taking calls immediately.
             </p>
@@ -64,17 +64,17 @@ export default function SignUpPage() {
               <div key={label}>
                 <p
                   className="text-3xl leading-none"
-                  style={{ fontFamily: "var(--font-instrument-serif)", color: "#c97d14" }}
+                  style={{ fontFamily: "var(--font-ubuntu)", color: "#c97d14" }}
                 >
                   {value}
                 </p>
-                <p className="mt-1 text-xs" style={{ color: "#3a3530" }}>{label}</p>
+                <p className="mt-1 text-xs" style={{ color: "rgba(255,255,255,0.40)" }}>{label}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <p className="text-xs" style={{ color: "#2a2520" }}>© 2026 ReserveAI</p>
+        <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>© 2026 ReserveAI</p>
       </div>
 
       {/* Right — auth */}
@@ -82,7 +82,7 @@ export default function SignUpPage() {
         <div className="mb-8 flex items-center gap-2 lg:hidden">
           <span
             className="text-xl"
-            style={{ fontFamily: "var(--font-instrument-serif)", color: "#e0d8cc" }}
+            style={{ fontFamily: "var(--font-ubuntu)", color: "#ffffff" }}
           >Reserve</span>
           <span
             className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider"
@@ -95,18 +95,18 @@ export default function SignUpPage() {
             variables: {
               colorPrimary:         "#c97d14",
               colorBackground:      "#0f0e0b",
-              colorText:            "#e0d8cc",
-              colorTextSecondary:   "#6a6258",
+              colorText:            "#ffffff",
+              colorTextSecondary:   "rgba(255,255,255,0.50)",
               colorInputBackground: "#141210",
-              colorInputText:       "#e0d8cc",
+              colorInputText:       "#ffffff",
               colorDanger:          "#c0604a",
               borderRadius:         "10px",
-              colorNeutral:         "#3a3530",
+              colorNeutral:         "rgba(255,255,255,0.40)",
             },
           }}
         />
 
-        <p className="mt-6 text-xs" style={{ color: "#3a3530" }}>
+        <p className="mt-6 text-xs" style={{ color: "rgba(255,255,255,0.40)" }}>
           Already have an account?{" "}
           <Link href="/sign-in" className="underline" style={{ color: "#c97d14" }}>
             Sign in

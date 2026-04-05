@@ -35,14 +35,14 @@ export default function CallsTable({ calls }: Props) {
           <thead style={{ background: "oklch(0.12 0.009 72)" }}>
             <tr style={{ borderBottom: "1px solid oklch(0.22 0.008 72 / 0.4)" }}>
               {["Time", "Caller", "Duration", "Outcome", "Reservation"].map((h) => (
-                <th key={h} className={TH} style={{ color: "#3a3530" }}>{h}</th>
+                <th key={h} className={TH} style={{ color: "rgba(255,255,255,0.40)" }}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {calls.length === 0 && (
               <tr>
-                <td colSpan={5} className="py-16 text-center text-sm" style={{ color: "#3a3530" }}>
+                <td colSpan={5} className="py-16 text-center text-sm" style={{ color: "rgba(255,255,255,0.40)" }}>
                   No calls yet — your AI phone is ready to receive calls
                 </td>
               </tr>
@@ -57,11 +57,11 @@ export default function CallsTable({ calls }: Props) {
                   borderBottom: "1px solid oklch(0.22 0.008 72 / 0.25)",
                 }}
               >
-                <td className={TD} style={{ color: "#7a7268" }}>{formatDate(call.created_at)}</td>
-                <td className={`${TD} font-mono`} style={{ color: "#c0b8ac" }}>
+                <td className={TD} style={{ color: "rgba(255,255,255,0.55)" }}>{formatDate(call.created_at)}</td>
+                <td className={`${TD} font-mono`} style={{ color: "#f0f0f0" }}>
                   {call.customer_phone ?? "Unknown"}
                 </td>
-                <td className={`${TD} font-mono`} style={{ color: "#7a7268" }}>
+                <td className={`${TD} font-mono`} style={{ color: "rgba(255,255,255,0.55)" }}>
                   {formatDuration(call.duration_seconds)}
                 </td>
                 <td className={TD}><CallOutcomeBadge outcome={call.outcome} /></td>

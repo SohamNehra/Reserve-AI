@@ -34,7 +34,7 @@ export default async function RootPage() {
         <div className="flex items-center gap-2">
           <span
             className="text-xl leading-none"
-            style={{ fontFamily: "var(--font-instrument-serif)", color: "#e0d8cc" }}
+            style={{ fontFamily: "var(--font-ubuntu)", color: "#ffffff" }}
           >
             Reserve
           </span>
@@ -49,7 +49,7 @@ export default async function RootPage() {
           <Link
             href="/sign-in"
             className="text-sm transition-colors"
-            style={{ color: "#5a5348" }}
+            style={{ color: "rgba(255,255,255,0.45)" }}
           >
             Sign in
           </Link>
@@ -75,7 +75,7 @@ export default async function RootPage() {
 
         <h1
           className="mx-auto max-w-3xl text-6xl leading-[1.05] md:text-7xl"
-          style={{ fontFamily: "var(--font-instrument-serif)", color: "#e0d8cc" }}
+          style={{ fontFamily: "var(--font-ubuntu)", color: "#ffffff" }}
         >
           Your business never misses a{" "}
           <span style={{ color: "#c97d14" }}>reservation</span>{" "}
@@ -84,7 +84,7 @@ export default async function RootPage() {
 
         <p
           className="mx-auto mt-6 max-w-xl text-lg leading-relaxed"
-          style={{ color: "#4a4138" }}
+          style={{ color: "rgba(255,255,255,0.55)" }}
         >
           An AI receptionist that answers every inbound call, understands your customers,
           and books reservations in real time — around the clock, without you lifting a finger.
@@ -103,7 +103,7 @@ export default async function RootPage() {
             className="rounded-2xl px-8 py-3.5 text-base transition-all"
             style={{
               border: "1px solid oklch(0.22 0.008 72 / 0.5)",
-              color: "#7a7268",
+              color: "rgba(255,255,255,0.55)",
               background: "oklch(0.12 0.009 72)",
             }}
           >
@@ -131,11 +131,11 @@ export default async function RootPage() {
             >
               <span
                 className="text-3xl leading-none"
-                style={{ fontFamily: "var(--font-instrument-serif)", color: "#c97d14" }}
+                style={{ fontFamily: "var(--font-ubuntu)", color: "#c97d14" }}
               >
                 {value}
               </span>
-              <span className="text-xs" style={{ color: "#3a3530" }}>{label}</span>
+              <span className="text-xs" style={{ color: "rgba(255,255,255,0.40)" }}>{label}</span>
             </div>
           ))}
         </div>
@@ -147,7 +147,7 @@ export default async function RootPage() {
           <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "#c97d14" }}>How it works</p>
           <h2
             className="text-4xl"
-            style={{ fontFamily: "var(--font-instrument-serif)", color: "#c0b8ac" }}
+            style={{ fontFamily: "var(--font-ubuntu)", color: "#f0f0f0" }}
           >
             Three steps. Zero effort.
           </h2>
@@ -186,7 +186,7 @@ export default async function RootPage() {
                 <div>
                   <p
                     className="text-4xl leading-none mb-4"
-                    style={{ fontFamily: "var(--font-instrument-serif)", color: "oklch(0.22 0.008 72)" }}
+                    style={{ fontFamily: "var(--font-ubuntu)", color: "oklch(0.22 0.008 72)" }}
                   >
                     {step}
                   </p>
@@ -198,11 +198,11 @@ export default async function RootPage() {
                   </div>
                   <h3
                     className="text-lg mb-2"
-                    style={{ fontFamily: "var(--font-instrument-serif)", color: "#c0b8ac" }}
+                    style={{ fontFamily: "var(--font-ubuntu)", color: "#f0f0f0" }}
                   >
                     {title}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#4a4138" }}>{body}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{body}</p>
                 </div>
               </div>
             </div>
@@ -216,7 +216,7 @@ export default async function RootPage() {
           <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "#c97d14" }}>Features</p>
           <h2
             className="text-4xl"
-            style={{ fontFamily: "var(--font-instrument-serif)", color: "#c0b8ac" }}
+            style={{ fontFamily: "var(--font-ubuntu)", color: "#f0f0f0" }}
           >
             Everything you need. Nothing you don't.
           </h2>
@@ -271,11 +271,11 @@ export default async function RootPage() {
               </div>
               <h3
                 className="mb-2 text-base"
-                style={{ fontFamily: "var(--font-instrument-serif)", color: "#c0b8ac" }}
+                style={{ fontFamily: "var(--font-ubuntu)", color: "#f0f0f0" }}
               >
                 {title}
               </h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#4a4138" }}>{body}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{body}</p>
             </div>
           ))}
         </div>
@@ -297,11 +297,11 @@ export default async function RootPage() {
           <div className="relative">
             <h2
               className="text-5xl mb-4"
-              style={{ fontFamily: "var(--font-instrument-serif)", color: "#e0d8cc" }}
+              style={{ fontFamily: "var(--font-ubuntu)", color: "#ffffff" }}
             >
               Ready to never miss a booking?
             </h2>
-            <p className="mb-8 text-base" style={{ color: "#4a4138" }}>
+            <p className="mb-8 text-base" style={{ color: "rgba(255,255,255,0.55)" }}>
               Set up your AI receptionist in 5 minutes. Free to start.
             </p>
             <Link
@@ -324,7 +324,7 @@ export default async function RootPage() {
           <div className="flex items-center gap-2">
             <span
               className="text-base leading-none"
-              style={{ fontFamily: "var(--font-instrument-serif)", color: "#5a5348" }}
+              style={{ fontFamily: "var(--font-ubuntu)", color: "rgba(255,255,255,0.45)" }}
             >
               Reserve
             </span>
@@ -335,7 +335,7 @@ export default async function RootPage() {
               AI
             </span>
           </div>
-          <p className="text-xs" style={{ color: "#2a2520" }}>
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
             © 2026 ReserveAI · AI always online
           </p>
         </div>

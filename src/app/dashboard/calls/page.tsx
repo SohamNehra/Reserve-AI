@@ -20,11 +20,11 @@ export default async function CallsPage() {
       <div>
         <h1
           className="text-2xl"
-          style={{ fontFamily: "var(--font-instrument-serif)", color: "#c0b8ac" }}
+          style={{ fontFamily: "var(--font-ubuntu)", color: "#f0f0f0" }}
         >
           Call Logs
         </h1>
-        <p className="mt-1 text-sm" style={{ color: "#3a3530" }}>
+        <p className="mt-1 text-sm" style={{ color: "rgba(255,255,255,0.40)" }}>
           Every inbound call handled by your AI receptionist
         </p>
       </div>

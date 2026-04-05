@@ -31,7 +31,7 @@ export default function TopNav({ businessName }: Props) {
         <Link href="/dashboard" className="flex items-center gap-1.5 shrink-0">
           <span
             className="text-lg leading-none"
-            style={{ fontFamily: "var(--font-instrument-serif)", color: "#e0d8cc" }}
+            style={{ fontFamily: "var(--font-ubuntu)", color: "#ffffff" }}
           >
             Reserve
           </span>
@@ -54,8 +54,8 @@ export default function TopNav({ businessName }: Props) {
                 className={cn(
                   "relative px-3 py-1.5 text-sm transition-colors rounded-lg",
                   active
-                    ? "text-[#e0d8cc]"
-                    : "text-[#5a5348] hover:text-[#a09585]"
+                    ? "text-[#ffffff]"
+                    : "text-[rgba(255,255,255,0.45)] hover:text-[#a09585]"
                 )}
               >
                 {label}
@@ -77,7 +77,7 @@ export default function TopNav({ businessName }: Props) {
           <span className="h-1.5 w-1.5 animate-glow-pulse rounded-full" style={{ background: "#4a9e6b" }} />
           <span className="text-xs" style={{ color: "#4a9e6b" }}>AI Live</span>
         </div>
-        <span className="text-xs truncate max-w-[120px]" style={{ color: "#3a3530" }}>
+        <span className="text-xs truncate max-w-[120px]" style={{ color: "rgba(255,255,255,0.40)" }}>
           {businessName}
         </span>
         <UserButton

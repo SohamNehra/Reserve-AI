@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, DM_Sans } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
+const ubuntu = Ubuntu({
   subsets: ["latin"],
-  variable: "--font-instrument-serif",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm-sans",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ubuntu",
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 
@@ -25,10 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
-      <html
-        lang="en"
-        className={`${instrumentSerif.variable} ${dmSans.variable} h-full`}
-      >
+      <html lang="en" className={`${ubuntu.variable} h-full`}>
         <body className="min-h-full flex flex-col antialiased">{children}</body>
       </html>
     </ClerkProvider>

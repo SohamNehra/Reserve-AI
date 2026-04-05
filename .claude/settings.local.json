@@ -32,7 +32,8 @@
       "WebFetch(domain:www.npmjs.com)",
       "WebFetch(domain:googleapis.dev)",
       "WebFetch(domain:clerk.com)",
-      "Bash(npx vercel:*)"
+      "Bash(npx vercel:*)",
+      "Bash(xargs sed:*)"
     ]
   }
 }
