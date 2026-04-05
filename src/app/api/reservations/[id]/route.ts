@@ -11,7 +11,7 @@ export async function PATCH(
 
   const { id } = await params;
   const body = await req.json();
-  const { status, notes, party_size } = body;
+  const { status, notes, party_size, date, time_slot } = body;
 
   // Scope update to the user's business (security check)
   const { data: business } = await supabaseAdmin
@@ -23,9 +23,11 @@ export async function PATCH(
   if (!business) return NextResponse.json({ error: "Business not found" }, { status: 404 });
 
   const updatePayload: Record<string, unknown> = {};
-  if (status !== undefined) updatePayload.status = status;
-  if (notes !== undefined) updatePayload.notes = notes;
+  if (status    !== undefined) updatePayload.status    = status;
+  if (notes     !== undefined) updatePayload.notes     = notes;
   if (party_size !== undefined) updatePayload.party_size = party_size;
+  if (date      !== undefined) updatePayload.date      = date;
+  if (time_slot !== undefined) updatePayload.time_slot = time_slot;
 
   const { data, error } = await supabaseAdmin
     .from("reservations")

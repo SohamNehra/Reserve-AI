@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ReservationStatusBadge from "./ReservationStatusBadge";
 import CreateReservationDialog from "./CreateReservationDialog";
+import EditReservationDialog from "./EditReservationDialog";
 import { Zap } from "lucide-react";
 import type { Reservation } from "@/lib/supabase/types";
 
@@ -14,8 +15,9 @@ const TD = "px-4 py-3 text-sm";
 
 export default function ReservationTable({ reservations }: Props) {
   const router = useRouter();
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [updating,   setUpdating]   = useState<string | null>(null);
+  const [dialogOpen, setDialogOpen]             = useState(false);
+  const [editTarget, setEditTarget]             = useState<Reservation | null>(null);
+  const [updating,   setUpdating]               = useState<string | null>(null);
 
   async function updateStatus(id: string, status: "cancelled" | "completed") {
     setUpdating(id);
@@ -102,6 +104,14 @@ export default function ReservationTable({ reservations }: Props) {
                     <div className="flex items-center justify-end gap-2">
                       <button
                         disabled={updating === r.id}
+                        onClick={() => setEditTarget(r)}
+                        className="rounded-lg px-2.5 py-1 text-xs transition-colors disabled:opacity-40"
+                        style={{ color: "rgba(255,255,255,0.60)", background: "oklch(0.16 0.009 72)" }}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        disabled={updating === r.id}
                         onClick={() => updateStatus(r.id, "completed")}
                         className="rounded-lg px-2.5 py-1 text-xs transition-colors disabled:opacity-40"
                         style={{ color: "#4a9e6b", background: "oklch(0.59 0.10 155 / 0.10)" }}
@@ -126,6 +136,12 @@ export default function ReservationTable({ reservations }: Props) {
       </div>
 
       <CreateReservationDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
+      {editTarget && (
+        <EditReservationDialog
+          reservation={editTarget}
+          onClose={() => setEditTarget(null)}
+        />
+      )}
     </div>
   );
 }

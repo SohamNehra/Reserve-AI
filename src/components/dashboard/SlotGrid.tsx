@@ -1,4 +1,4 @@
-import { format12h } from "@/lib/availability";
+import { format12h } from "@/lib/format-time";
 
 type SlotStatus = "available" | "booked" | "past";
 
