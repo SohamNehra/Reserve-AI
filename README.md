@@ -236,7 +236,3 @@ Customer calls AI phone number
          ↓
   GPT confirms booking to customer
 ```
-
-## License
-
-MIT
